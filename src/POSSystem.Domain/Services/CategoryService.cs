@@ -12,10 +12,10 @@ namespace POSSystem.Domain.Services
         private readonly ICategoryRepository _categoryRepository;
         private readonly IProductService _productService;
 
-        public CategoryService(ICategoryRepository categoryRepository, IProductService bookService)
+        public CategoryService(ICategoryRepository categoryRepository, IProductService productService)
         {
             _categoryRepository = categoryRepository;
-            _bookService = bookService;
+            _productService = productService;
         }
 
         public async Task<IEnumerable<Category>> GetAll()
@@ -48,7 +48,7 @@ namespace POSSystem.Domain.Services
 
         public async Task<bool> Remove(Category category)
         {
-            var books = await _productService.GetBooksByCategory(category.Id);
+            var books = await _productService.GetProductsByCategory(category.Id);
             if (books.Any()) return false;
 
             await _categoryRepository.Remove(category);
