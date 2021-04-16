@@ -57,6 +57,7 @@ namespace POSSystem.Infrastructure.Repositories
 
         public async Task<int> SaveChanges()
         {
+            Db.CheckForAuditables();
             return await Db.SaveChangesAsync();
         }
 

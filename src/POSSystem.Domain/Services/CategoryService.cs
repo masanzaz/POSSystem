@@ -48,8 +48,8 @@ namespace POSSystem.Domain.Services
 
         public async Task<bool> Remove(Category category)
         {
-            var books = await _productService.GetProductsByCategory(category.Id);
-            if (books.Any()) return false;
+            var categories = await _productService.GetProductsByCategory(category.Id);
+            if (categories.Any()) return false;
 
             await _categoryRepository.Remove(category);
             return true;

@@ -4,8 +4,8 @@ using POSSystem.Infrastructure.Context;
 
 namespace POSSystem.Infrastructure.Repositories
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
-        public CategoryRepository(POSDbContext context) : base(context) { }
+        public CustomerRepository(POSDbContext context) : base(context) { }
     }
 }

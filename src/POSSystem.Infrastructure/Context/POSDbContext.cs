@@ -52,8 +52,8 @@ namespace POSSystem.Infrastructure.Context
             //string ip = (_httpContext != null) ?
             ///    (_httpContext.Request.UserHostAddress) :
             //   "Ejecudado desde servicio local";
-            string ip = "";
-            string identityName = "";
+            string ip = "test";
+            string identityName = "test";
             //string identityName = _identity?.Name ?? "Servicio Local";
 
             DateTime now = DateTime.Now;
@@ -75,12 +75,18 @@ namespace POSSystem.Infrastructure.Context
                             entity.ModifiedDate = now;
                             entity.ModifiedByUser = identityName;
                             entity.ModifiedIp = ip;
+                            entry.Property(nameof(entity.CreatedByUser)).IsModified = false;
+                            entry.Property(nameof(entity.CreatedDate)).IsModified = false;
+                            entry.Property(nameof(entity.CreatedIp)).IsModified = false;
                             break;
                         case (EntityState.Deleted):
                             entity.ModifiedDate = now;
                             entity.ModifiedByUser = identityName;
                             entity.ModifiedIp = ip;
                             entity.Active = false;
+                            entry.Property(nameof(entity.CreatedByUser)).IsModified = false;
+                            entry.Property(nameof(entity.CreatedDate)).IsModified = false;
+                            entry.Property(nameof(entity.CreatedIp)).IsModified = false;
                             entry.State = EntityState.Modified;
                             break;
                     }
@@ -92,6 +98,10 @@ namespace POSSystem.Infrastructure.Context
         #region Entities
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
         #endregion
 
     }

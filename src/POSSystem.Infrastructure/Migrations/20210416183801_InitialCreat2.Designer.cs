@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using POSSystem.Infrastructure.Context;
 
 namespace POSSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(POSDbContext))]
-    partial class POSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210416183801_InitialCreat2")]
+    partial class InitialCreat2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,8 +38,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -94,8 +95,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -163,8 +163,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -227,8 +226,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -297,8 +295,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -358,8 +355,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")

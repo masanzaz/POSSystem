@@ -12,6 +12,6 @@ namespace POSSystem.Domain.Models.Kernel
         DateTime CreatedDate { get; set; }
         string ModifiedByUser { get; set; }
         string ModifiedIp { get; set; }
-        DateTime ModifiedDate { get; set; }
+        DateTime? ModifiedDate { get; set; }
     }
 }

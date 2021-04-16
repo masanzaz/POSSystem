@@ -18,7 +18,7 @@ namespace POSSystem.Infrastructure.Configurations
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.ToTable(TableName, SchemaName);
-
+            builder.HasQueryFilter(p => p.Active);
             ConfigureEntity(builder);
 
             builder.Property(e => e.Active)
@@ -44,20 +44,17 @@ namespace POSSystem.Infrastructure.Configurations
                 .HasColumnOrder(104);
 
             builder.Property(e => e.ModifiedByUser)
-                .IsRequired()
-                .HasDefaultValueSql("(CURRENT_USER)")
+                .IsRequired(false)
                 .HasColumnType("nvarchar(100)")
                 .HasColumnOrder(105);
 
             builder.Property(e => e.ModifiedIp)
-                .IsRequired()
-                .HasDefaultValueSql("(CURRENT_USER)")
+                .IsRequired(false)
                 .HasColumnType("nvarchar(100)")
                 .HasColumnOrder(106);
 
             builder.Property(e => e.ModifiedDate)
-                .IsRequired()
-                .HasDefaultValueSql("(getUTCDate())")
+                .IsRequired(false)
                 .HasColumnType("datetime")
                 .HasColumnOrder(107);
         }

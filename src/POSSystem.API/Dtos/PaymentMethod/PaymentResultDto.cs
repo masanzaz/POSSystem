@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace POSSystem.API.Dtos.Category
+namespace POSSystem.API.Dtos.PaymentMethod
 {
-    public class CategoryResultDto
+    public class PaymentResultDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

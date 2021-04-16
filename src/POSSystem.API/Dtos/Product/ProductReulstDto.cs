@@ -5,6 +5,7 @@ namespace POSSystem.API.Dtos.Product
 {
     public class ProductResultDto
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string BarCode { get; set; }

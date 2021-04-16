@@ -5,7 +5,6 @@ using POSSystem.Domain.Interfaces;
 using POSSystem.Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace POSSystem.API.Controllers
@@ -81,9 +80,9 @@ namespace POSSystem.API.Controllers
 
         [Route("search/{category}")]
         [HttpGet]
-        public async Task<ActionResult<List<Category>>> Search(string category)
+        public async Task<ActionResult<List<CategoryResultDto>>> Search(string category)
         {
-            var categories = _mapper.Map<List<Category>>(await _categoryService.Search(category));
+            var categories = _mapper.Map<List<CategoryResultDto>>(await _categoryService.Search(category));
 
             if (categories == null || categories.Count == 0)
                 return NotFound("None category was founded");

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using POSSystem.API.Dtos.Category;
 using POSSystem.API.Dtos.Product;
 using POSSystem.Domain.Interfaces;
 using POSSystem.Domain.Models;
@@ -12,7 +11,6 @@ using System.Threading.Tasks;
 namespace POSSystem.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     public class ProductsController : MainController
     {
         private readonly IProductService _productService;
@@ -28,24 +26,24 @@ namespace POSSystem.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var books = await _productService.GetAll();
+            var products = await _productService.GetAll();
 
-            return Ok(_mapper.Map<IEnumerable<ProductResultDto>>(books));
+            return Ok(_mapper.Map<IEnumerable<ProductResultDto>>(products));
         }
 
         [HttpGet("{id:Guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var book = await _productService.GetById(id);
+            var product = await _productService.GetById(id);
 
-            if (book == null) return NotFound();
+            if (product == null) return NotFound();
 
-            return Ok(_mapper.Map<ProductResultDto>(book));
+            return Ok(_mapper.Map<ProductResultDto>(product));
         }
 
         [HttpGet]
         [Route("get-products-by-category/{categoryId:Guid}")]
-        public async Task<IActionResult> GetBooksByCategory(Guid categoryId)
+        public async Task<IActionResult> GetProductsByCategory(Guid categoryId)
         {
             var products = await _productService.GetProductsByCategory(categoryId);
 
@@ -92,24 +90,24 @@ namespace POSSystem.API.Controllers
 
         [Route("search/{productName}")]
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> Search(string productName)
+        public async Task<ActionResult<List<ProductResultDto>>> Search(string productName)
         {
-            var books = _mapper.Map<List<Product>>(await _productService.Search(productName));
+            var products = _mapper.Map<List<Product>>(await _productService.Search(productName));
 
-            if (books == null || books.Count == 0) return NotFound("None book was founded");
+            if (products == null || products.Count == 0) return NotFound("None product was founded");
 
-            return Ok(books);
+            return Ok(_mapper.Map<IEnumerable<ProductResultDto>>(products));
         }
 
         [Route("search-product-with-category/{searchedValue}")]
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> SearchProductWithCategory(string searchedValue)
+        public async Task<ActionResult<List<ProductResultDto>>> SearchProductWithCategory(string searchedValue)
         {
-            var books = _mapper.Map<List<Product>>(await _productService.SearchProductWithCategory(searchedValue));
+            var products = _mapper.Map<List<Product>>(await _productService.SearchProductWithCategory(searchedValue));
 
-            if (!books.Any()) return NotFound("None book was founded");
+            if (!products.Any()) return NotFound("None product was founded");
 
-            return Ok(_mapper.Map<IEnumerable<ProductResultDto>>(books));
+            return Ok(_mapper.Map<IEnumerable<ProductResultDto>>(products));
         }
     }
 }

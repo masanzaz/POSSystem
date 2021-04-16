@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using POSSystem.Infrastructure.Context;
 
 namespace POSSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(POSDbContext))]
-    partial class POSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210415190314_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,8 +38,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -54,15 +55,23 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasColumnType("varchar(300)");
 
                     b.Property<string>("ModifiedByUser")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 105);
 
-                    b.Property<DateTime?>("ModifiedDate")
+                    b.Property<DateTime>("ModifiedDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getUTCDate())")
                         .HasAnnotation("ColumnOrder", 107);
 
                     b.Property<string>("ModifiedIp")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 106);
 
                     b.Property<string>("Name")
@@ -94,8 +103,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -123,15 +131,23 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("ModifiedByUser")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 105);
 
-                    b.Property<DateTime?>("ModifiedDate")
+                    b.Property<DateTime>("ModifiedDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getUTCDate())")
                         .HasAnnotation("ColumnOrder", 107);
 
                     b.Property<string>("ModifiedIp")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 106);
 
                     b.Property<string>("Phone")
@@ -163,8 +179,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -181,15 +196,23 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ModifiedByUser")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 105);
 
-                    b.Property<DateTime?>("ModifiedDate")
+                    b.Property<DateTime>("ModifiedDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getUTCDate())")
                         .HasAnnotation("ColumnOrder", 107);
 
                     b.Property<string>("ModifiedIp")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 106);
 
                     b.Property<string>("Observation")
@@ -227,8 +250,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -245,15 +267,23 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasColumnType("decimal(9,2)");
 
                     b.Property<string>("ModifiedByUser")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 105);
 
-                    b.Property<DateTime?>("ModifiedDate")
+                    b.Property<DateTime>("ModifiedDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getUTCDate())")
                         .HasAnnotation("ColumnOrder", 107);
 
                     b.Property<string>("ModifiedIp")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 106);
 
                     b.Property<Guid>("OrderId")
@@ -297,8 +327,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -315,15 +344,23 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("ModifiedByUser")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 105);
 
-                    b.Property<DateTime?>("ModifiedDate")
+                    b.Property<DateTime>("ModifiedDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getUTCDate())")
                         .HasAnnotation("ColumnOrder", 107);
 
                     b.Property<string>("ModifiedIp")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 106);
 
                     b.Property<string>("Name")
@@ -358,8 +395,7 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 102);
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getUTCDate())")
@@ -379,15 +415,23 @@ namespace POSSystem.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ModifiedByUser")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 105);
 
-                    b.Property<DateTime?>("ModifiedDate")
+                    b.Property<DateTime>("ModifiedDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getUTCDate())")
                         .HasAnnotation("ColumnOrder", 107);
 
                     b.Property<string>("ModifiedIp")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(100)")
+                        .HasDefaultValueSql("(CURRENT_USER)")
                         .HasAnnotation("ColumnOrder", 106);
 
                     b.Property<string>("Name")
